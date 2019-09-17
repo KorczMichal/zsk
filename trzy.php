@@ -24,10 +24,17 @@
         $imie= 'Jan';
         $nazw = 'Kowalski';
 
-        $text= <<<TEKST
-        Twoje imię : $imie
-        TEKST;
+        $text= <<<E
+        Twoje imię : $imie<br>
+        Twoje nazwisko: $nazw
+        E;//Etykieta, nie dawać spacji, uważać na białe znaki
         echo $text;
+        echo <<<E
+        <br>
+        Tekst<hr>
+        E;
+        //składnia nowdoc
+
         ?>
     </body>
 </html>
