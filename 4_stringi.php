@@ -89,7 +89,21 @@
     $login = 'bączek';
     $censore= array('ą','ę','ś','ż','ź','ć','ó','ń','ł');
     $replace= array('a','e','s','z','z','c','o','n','l');
-    echo $login;
+    echo $login.'<br>';
+    $newlogin = str_replace($censore,$replace,$login);
+    echo $newlogin.'<br>';
+
+    /* napisz aplikację cenzurującą zdanie napisane przez użytkownika, użytkownik podaje dane z formularza*/
+    echo <<< FORM
+    <form method="post">
+    <input type="text" name='dane' placeholder="Wpisz dane"><br>
+    <input type="submit" value="Zatwierdź"><br>
+    </form>
+    FORM;
+    if(isset($_POST['dane'])){
+    echo $data;
+    }
     ?>
+
 </body>
 </html>
