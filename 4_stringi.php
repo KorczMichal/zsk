@@ -50,6 +50,46 @@
     echo $search;
     $search = stristr($address, 'Tel',true).'<br>';//strIstr
     echo $search;
+    $mail = strstr('zsk@gmail.com', '@');
+    echo $mail,'<br>';
+    $mail = strstr('zsk@gmail.com', 64);
+    echo $mail,'<br>';
+    ##############################################
+    $ciagi1 = 'a';
+    $ciagi2 = 'aa';
+    echo strcmp($ciagi1,$ciagi2).'<br>';//-1
+    echo strcmp('zzzz','zzza').'<br>';//0
+    echo strcmp('zzza','zzzz').'<br>';//-1
+    echo strcmp('zzzz','zzza').'<br>';//1
+    echo strcmp('zzza','zzz').'<br>';//1
+
+    //pozycja
+    $pos = strpos('abcdefg','cde');
+    echo $pos,'<br>';
+    $pos = strpos('abcabc','abc');
+    echo $pos,'<hr>';
+    //zad1
+    $text1 = 'abcdabcd';
+    $text2 = 'ab';
+     if(strpos($text1,$text2)===false){
+         echo "Ciąg $text2 nie został znaleziony w ciągu $text1<br>";}
+    else{
+        echo "Ciąg $text2 został znaleziony w ciągu $text1<br>";
+    }
+     //przetwarzanie ciągów znaków
+    $replace = str_replace('%name%', 'Janusz', 'Mam na imię : %name%');
+    echo $replace.'<br>';
+    //substring
+
+        $surname = substr('Janusz Kowalski',2);
+    echo $surname.'<br>';
+    $surname = substr('Janusz Kowalski',7,5);
+    echo $surname.'<br>';
+    //zamiana polskich znaków
+    $login = 'bączek';
+    $censore= array('ą','ę','ś','ż','ź','ć','ó','ń','ł');
+    $replace= array('a','e','s','z','z','c','o','n','l');
+    echo $login;
     ?>
 </body>
 </html>
