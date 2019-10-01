@@ -43,7 +43,13 @@
     echo strlen(rtrim($name1)),'<br>';//7
     echo strlen(trim($name1)),'<br>';//7
     //przeszukiwanie ciągów znaków
-    $address =
+    $address = 'Poznań, ul. Fredry 13, tel (61) 445-44-58';
+    $search = strstr($address, 'tel').'<br>';
+    echo $search;
+    $search = strstr($address, 'tel',true).'<br>';
+    echo $search;
+    $search = stristr($address, 'Tel',true).'<br>';//strIstr
+    echo $search;
     ?>
 </body>
 </html>
