@@ -101,7 +101,14 @@
     </form>
     FORM;
     if(isset($_POST['dane'])){
+    $data = $_POST['dane'];
     echo $data;
+        $censore = array('biały','czarny');
+        $replace = '**###**';
+        $correct = str_ireplace($censore, $replace,$data);
+        echo "Dane przed poprawą: $data</br>";
+        echo "Dane po poprawie: $correct</br>";
+
     }
     ?>
 
