@@ -80,6 +80,41 @@
         }
         echo"<br>";
     }
+
+//Sortowanie
+    $tab = array(10,1,5,10000,13,-4);
+    function tab1($tab){
+        foreach($tab as $value){
+            echo "$value ";
+        }
+
+    }
+    tab1($tab);
+    echo"<br>";
+    //sortowanie niemalejące według wartości
+    sort($tab);
+    tab1($tab);
+    echo"<br>";
+
+    //sortowanie nierosnące według wartości
+    rsort($tab);
+    tab1($tab);
+    echo "<br>";
+    #########################################3
+    $tab2 = array("katarzyna","Zenon","Paweł", "anna" );
+    sort($tab2);
+    tab1($tab2);
+    ###############################################3
+    //sortowanie niemalejące tablicy asocjacyjnej według klucza
+
+    $tabAssoc = array(
+    "surname" => "Nowak",
+    "name" => "Andrzej",
+    "city" => "Poznań",
+    "age" => 30
+    );
+
+
     ?>
 
 
