@@ -87,11 +87,11 @@
         foreach($tab as $value){
             echo "$value ";
         }
-
+echo "<br>";
     }
     tab1($tab);
     echo"<br>";
-    //sortowanie niemalejące według wartości
+    //sortowanie tablicy indeksowanej niemalejące według wartości
     sort($tab);
     tab1($tab);
     echo"<br>";
@@ -104,8 +104,9 @@
     $tab2 = array("katarzyna","Zenon","Paweł", "anna" );
     sort($tab2);
     tab1($tab2);
+    echo"<br>";
     ###############################################3
-    //sortowanie niemalejące tablicy asocjacyjnej według klucza
+    //sortowanie niemalejące tablicy asocjacyjnej według wartości
 
     $tabAssoc = array(
     "surname" => "Nowak",
@@ -113,6 +114,28 @@
     "city" => "Poznań",
     "age" => 30
     );
+
+tab1($tabAssoc);
+asort($tabAssoc);
+tab1($tabAssoc);
+//sortowanie nierosnąco według wartości
+tab1($tabAssoc);
+arsort($tabAssoc);
+tab1($tabAssoc);
+//sortowanie tablicy niemalejąco według klucza
+ksort($tabAssoc);
+tab1($tabAssoc);
+  //sortowanie tablicy nierosnąco według klucza
+krsort($tabAssoc);
+tab1($tabAssoc);
+
+    //wyświetlanie danych
+    var_dump($tabAssoc);
+    echo"<br>";
+    echo"<pre>";
+    echo print_r($tabAssoc);
+    echo"</pre>";
+
 
 
     ?>
