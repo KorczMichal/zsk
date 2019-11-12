@@ -1,8 +1,7 @@
 <?php session_start();
 $_SESSION['name'] = "Janusz";
-
-
-
+unset($_SESSION['name']);
+session_destroy();
 ?>
 <!doctype html>
 <html>
@@ -22,6 +21,6 @@ na stronie!</p>
 <?php
 echo "Identyfikator sesji: ",session_id();
 ?>
-    <br><a href="./sesja.php">Strona 2</a>
+    <br><a href="./sesja1.php">Strona startowa</a>
 </body>
 </html>
