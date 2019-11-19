@@ -10,11 +10,12 @@
     <input type="submit" value="zatwierdź"/>
     </form>
     <?php
-if(isset($_POST['name'])){
+if(isset($_POST['name'])&&isset($_POST['surname'])){
 $_SESSION['imie']=$_POST['name'];
-setcookie('nazwisko', $_POST['surname'],time()-(48*3600));
+setcookie('nazwisko', $_POST['surname'],time()+(48*3600));
 echo "imie:",$_SESSION['imie'],"<br>";
-echo $_COOKIE['nazwisko'],"<br>";
+echo "nazwisko: ",$_COOKIE['nazwisko'],"<br>";
+echo "<script>window.reload</script>";
 }
 ?>
 </body>
