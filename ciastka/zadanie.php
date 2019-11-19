@@ -15,7 +15,7 @@ $_SESSION['imie']=$_POST['name'];
 setcookie('nazwisko', $_POST['surname'],time()+(48*3600));
 echo "imie:",$_SESSION['imie'],"<br>";
 echo "nazwisko: ",$_COOKIE['nazwisko'],"<br>";
-echo "<script>window.reload</script>";
+echo "<script>location.reload</script>";
 }
 ?>
 </body>
