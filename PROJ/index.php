@@ -1,5 +1,5 @@
 <?php
-include start.php
-include main.php
-include stop.php
+include 'head.php';
+include 'main.php';
+include 'foot.php';
  ?>
