@@ -11,8 +11,8 @@
            Nazwa użytkownika
   </a>
   <div class="dropdown-menu">
-          <a class="dropdown-item" href="#account">Ustawienia</a>
-          <a class="dropdown-item" href="#account">Wyloguj</a>
+          <a class="dropdown-item" href="user.php">Ustawienia</a>
+          <a class="dropdown-item" href="">Wyloguj</a>
         </div>
   </li>
   </form>
