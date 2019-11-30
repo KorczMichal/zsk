@@ -1,6 +1,4 @@
 <?php
 include 'head.php';
-include 'nav!log.php';
-include 'main.php';
-include 'foot.php';
- ?>
+include 'landing.php';
+include 'foot.php'; ?>

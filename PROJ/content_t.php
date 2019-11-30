@@ -1,7 +1,6 @@
 <div class="container bg-info">
 <div class=" row">
-  <h4 class="col-10">Lekcja #</h4>
-  <a  class="col-2"href="q_page.php">Do quizu</a>
+  <h4 class="col-10">Klasa/</h4>
 </div>
 <div class="container">
   <h2 class="text-center"id="word">Słowo</h2>
