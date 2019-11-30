@@ -24,8 +24,8 @@
   </div>
   <div class="col-1">
   </div>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" href="edit_t.php">Dodaj</a>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" href="edit_t.php">Zapisz</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Dodaj</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Usuń</a>
 </div>
 <div class="container">
 <div class="row">
