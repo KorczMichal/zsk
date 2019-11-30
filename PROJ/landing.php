@@ -7,8 +7,9 @@
     <input class="form-control p-2" type="text" name="login" value="" placeholder="Podaj login" >
     <input class="form-control p-2" type="password" name="password" value="" placeholder="Podaj hasło">
   </div>
-  <div class="text-center">
-    <button class="btn btn-success p-2 m-2" type="submit" name="button"><a href="home.php">Zaloguj</a></button>
+  <div class="text-center text-white">
+    <button class="btn btn-success p-2 m-2  " type="submit" name="button"><a class="text-light" href="home.php">Zaloguj</a></button>
+    <button class="btn btn-success p-2 m-2 " type="submit" name="button"><a class="text-light" href="home_t.php">Zaloguj jako nauczyciel</a></button>
       </div>
   </form>
 </div>
