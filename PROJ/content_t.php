@@ -1,7 +1,10 @@
 <div class="container bg-info">
 <div class=" row">
-  <h4 class="col-1">Klasa</h4>
-  <div class="col-4 text-center">
+  <div class="col-1">
+    <h4 class="">Klasa</h4>
+  </div>
+
+  <div class="col-5 text-center">
     <form class="form-control" action="index.html" method="post">
       <select name="unit">
         <option value="unit1">Dzial 1</option>
@@ -16,22 +19,40 @@
         <option value="word2">Słowo 2</option>
         <option value="word3">Słowo 3</option>
       </select>
+      <button class="btn btn-dark btn-sm" type="submit" name="button">Przejdź</button>
     </form>
   </div>
-  <div class="col-4">
+  <div class="col-1">
   </div>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" href="edit_t.php">Zmień</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" href="edit_t.php">Dodaj</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" href="edit_t.php">Zapisz</a>
 </div>
 <div class="container">
-  <h2 class="text-center"id="word">Słowo</h2>
+<div class="row">
+  <h2 class="text-center col-8"id="word" id="word">
+    Słowo</h2>
+    <form class="form col-4" method="post">
+      <input type="text" name="new_word" value="">
+      <input type="submit" name="" value="Zamień">
+    </form>
+</div>
   <div class="container  justify-content-center">
   <p class="text-center">Tłumaczenia:</p>
   <ul class="bg-light">
-    <li>Tłumaczenie 1</li>
-    <li>Tłumaczenie 2</li>
-    <li>Tłumaczenie 3</li>
+    <li id="tr1">Tłumaczenie 1
+      <form class="form" method="post">
+        <input type="text" name="new_meaning" value="">
+        <input type="submit" name="" value="Zamień">
+      </form></li>
+    <li id="tr2">Tłumaczenie 2 <form class="form" method="post">
+      <input type="text" name="new_meaning" value="">
+      <input type="submit" name="" value="Zamień">
+    </form></li>
+    <li id="tr3">Tłumaczenie 3 <form class="form" method="post">
+      <input type="text" name="new_meaning" value="">
+      <input type="submit" name="" value="Zamień">
+    </form></li>
   </ul>
-
   </div>
   <div class="row text-center" >
     <div class="col-2">
