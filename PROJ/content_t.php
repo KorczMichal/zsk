@@ -1,32 +1,34 @@
 <div class="container bg-info">
-<div class=" row">
-  <div class="col-1">
-    <h4 class="">Klasa</h4>
+  <div class=" row">
+    <div class="container">
+      <form class="form-control" action="index.html" method="post">
+        <select name="class">
+          <option value="unit1">Klasa 1</option>
+          <option value="unit2">Klasa 2</option>
+        </select>
+        <select name="unit">
+          <option value="unit1">Dzial 1</option>
+          <option value="unit2">Dzial 2</option>
+        </select>
+        <select name="lesson">
+          <option value="lesson1">Lekcja 1</option>
+          <option value="lesson2">Lekcja 2</option>
+        </select>
+        <select name="word">
+          <option value="word1">Słowo 1</option>
+          <option value="word2">Słowo 2</option>
+          <option value="word3">Słowo 3</option>
+        </select>
+        <button class="btn btn-dark btn-sm" type="submit" name="button">Przejdź</button>
+      </form>
+    </div>
+    <div class="col-">
+    </div>
+    <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="class-add()" >Dodaj klase</a>
+    <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="unit-add()" >Dodaj dział</a>
+    <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="lesson-add()">Dodaj lekcję</a>
+    <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Usuń</a>
   </div>
-
-  <div class="col-5 text-center">
-    <form class="form-control" action="index.html" method="post">
-      <select name="unit">
-        <option value="unit1">Dzial 1</option>
-        <option value="unit2">Dzial 2</option>
-      </select>
-      <select name="lesson">
-        <option value="lesson1">Lekcja 1</option>
-        <option value="lesson2">Lekcja 2</option>
-      </select>
-      <select name="word">
-        <option value="word1">Słowo 1</option>
-        <option value="word2">Słowo 2</option>
-        <option value="word3">Słowo 3</option>
-      </select>
-      <button class="btn btn-dark btn-sm" type="submit" name="button">Przejdź</button>
-    </form>
-  </div>
-  <div class="col-2">
-  </div>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Dodaj</a>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Usuń</a>
-</div>
 <div class="container">
 <div class="row  p-2">
   <h2 class="text-left col-2"id="word" id="word">
@@ -38,6 +40,7 @@
 </div>
   <div class="container  justify-content-center">
   <p class="text-left">Tłumaczenia:</p>
+  <button type="button" name="button">Dodaj tłumaczenie</button>
   <ul class="bg-light">
     <li id="tr1">Tłumaczenie 1
 <div class="d-flex-inline">
