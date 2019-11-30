@@ -9,9 +9,9 @@
 <button type="button" name="teacher">Nauczyciele</button>
 <div class="cotainer bg-light">
   <ul>
-    <li> <a href="#">Użytkownik 1</a></li>
-    <li><a href="#">Użytkownik 2</a></li>
-    <li><a href="#">Użytkownik 3</a></li>
+    <li> <a href="user_a.php">Użytkownik 1</a></li>
+    <li><a href="user_a.php">Użytkownik 2</a></li>
+    <li><a href="user_a.php">Użytkownik 3</a></li>
   </ul>
 </div>
 </div>
