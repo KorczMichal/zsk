@@ -22,9 +22,10 @@
       <button class="btn btn-dark btn-sm" type="submit" name="button">Przejdź</button>
     </form>
   </div>
-  <div class="col-2">
+  <div class="col-">
   </div>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Dodaj</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="unit-add()" >Dodaj dział</a>
+  <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="lesson-add()">Dodaj lekcję</a>
   <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Usuń</a>
 </div>
 <div class="container">
@@ -72,7 +73,13 @@
     <div class="col-2">
       <button class="btn btn-dark" type="button" name="button">Wstecz</button>
     </div>
-    <div class="col-8">
+    <div class="col-3">
+
+    </div>
+    <div class="col-2">
+      <button class="btn btn-dark" type="button" name="button">Nowe</button>
+    </div>
+    <div class="col-3">
 
     </div>
     <div class="col-2">

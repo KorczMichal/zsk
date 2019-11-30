@@ -4,11 +4,11 @@
 
 <ul class="navbar-nav" >
 <li class="nav-item">
-<a class="nav-link" href="#1"  data-toggle="dropdown">
+<a class="nav-link" href="home_a_u.php"  data-toggle="dropdown">
          Przeglądaj użytkowników
 </a>
 <li class="nav-item ">
-<a class="nav-link " href="#2"  data-toggle="dropdown">
+<a class="nav-link " href="home_a_c.php"  data-toggle="dropdown">
          Przeglądaj klasy
 </a>
 </li>
