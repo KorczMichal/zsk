@@ -9,6 +9,7 @@
   </div>
   <div class="text-center text-white">
     <button class="btn btn-success p-2 m-2  " type="submit" name="button"><a class="text-light" href="home.php">Zaloguj</a></button>
+    <button class="btn btn-success p-2 m-2  " type="button" name="button"><a class="text-light" href="register.php">Przejdź do tworzenia konta</a></button>
     <button class="btn btn-success p-2 m-2 " type="submit" name="button"><a class="text-light" href="home_t.php">Zaloguj jako nauczyciel</a></button>
     <button class="btn btn-success p-2 m-2 " type="submit" name="button"><a class="text-light" href="home_a_u.php">Zaloguj jako administrator</a></button>
       </div>
