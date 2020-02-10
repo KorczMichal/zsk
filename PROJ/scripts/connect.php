@@ -1,4 +1,4 @@
 <?php
-$connect= mysql_connect("localhost","root","","techeng");
+$connect= mysqli_connect("localhost","root","","techeng");
 
  ?>
