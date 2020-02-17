@@ -9,16 +9,14 @@ if(
   !empty($_POST['login'])&&
   !empty($_POST['password'])){
   $login = filter($_POST['login']);
-  echo $login;
-  $password = filter($_POST['password']);
-  echo $password;
-  $sql="SELECT login, password FROM user WHERE login = '$login' AND password = '$password'";
+  $hash = password_hash(filter($_POST['password']),PASSWORD_ARGON2I);
+  $sql="SELECT login, password,type FROM user WHERE login = '$login'";
   $data=mysqli_query($connect,$sql);
-  var_dump($data);
+  $row=  mysqli_fetch_assoc($data);
+  if(password_verify($row['password'],$hash)){
     $_SESSION['logged'] = true;
     $_SESSION['login'] = $login;
-    $type=mysqli_query($connect,"select type from user where login = $login");
-    echo $type;
+    $type=$row['type'];
      switch($type){
        case "student":
        header("Location: ../home.php");
@@ -27,9 +25,9 @@ if(
        header("Location: ../teacher.php");
        break;
        case "admin":
-       header("Location: ../quiz.php");
+       header("Location: ../user_a.php");
        break;
      }
-   }
+   }}
    mysqli_close($connect);
  ?>
