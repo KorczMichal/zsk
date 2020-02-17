@@ -10,9 +10,6 @@
   <div class="text-center text-white">
     <button class="btn btn-success p-2 m-2 " type="submit" name="button">Zaloguj</button>
     <button class="btn btn-success p-2 m-2 " type="button" name="button"><a class="text-light" href="register.php">Przejdź do tworzenia konta</a></button>
-    <button class="btn btn-success p-2 m-2 " type="button" name="button"><a class="text-light" href="q_page.php">Do strony ucznia</a></button>
-    <button class="btn btn-success p-2 m-2 " type="button" name="button"><a class="text-light" href="teacher.php">Do strony nauczyciela</a></button>
-    <button class="btn btn-success p-2 m-2 " type="button" name="button"><a class="text-light" href="user_a.php">Do strony admina</a></button>
       </div>
   </form>
 </div>
