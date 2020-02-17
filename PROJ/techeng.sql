@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 09 Lut 2020, 23:56
+-- Czas generowania: 17 Lut 2020, 22:52
 -- Wersja serwera: 10.4.8-MariaDB
 -- Wersja PHP: 7.3.11
 
@@ -122,8 +122,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `login`, `password`, `type`, `name`, `surname`) VALUES
-(0, '1234', '123', 'teacher', '123', '123'),
-(1, 'admin', 'admin', 'admin', 'Michał', 'Korcz');
+(1, 'admin', 'admin', 'admin', 'Michał', 'Korcz'),
+(2, 'abc', 'abc', 'teacher', 'abc', 'abc');
 
 -- --------------------------------------------------------
 
@@ -156,14 +156,13 @@ CREATE TABLE `word_pol` (
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`id_class`),
-  ADD KEY `teacher` (`teacher`);
+  ADD KEY `fk_user` (`teacher`);
 
 --
 -- Indeksy dla tabeli `class_student`
 --
 ALTER TABLE `class_student`
-  ADD PRIMARY KEY (`id_class`,`id_user`),
-  ADD KEY `id_user` (`id_user`);
+  ADD PRIMARY KEY (`id_class`);
 
 --
 -- Indeksy dla tabeli `class_unit`
@@ -198,7 +197,7 @@ ALTER TABLE `meaning`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`id_unit`),
-  ADD KEY `teacher` (`teacher`);
+  ADD KEY `unit_ibfk_1` (`teacher`);
 
 --
 -- Indeksy dla tabeli `user`
@@ -222,6 +221,16 @@ ALTER TABLE `word_pol`
   ADD UNIQUE KEY `word` (`word`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT dla tabeli `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Ograniczenia dla zrzutów tabel
 --
 
@@ -229,17 +238,9 @@ ALTER TABLE `word_pol`
 -- Ograniczenia dla tabeli `class`
 --
 ALTER TABLE `class`
-  ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`teacher`) REFERENCES `user` (`id_user`),
-  ADD CONSTRAINT `class_ibfk_2` FOREIGN KEY (`teacher`) REFERENCES `user` (`id_user`),
-  ADD CONSTRAINT `class_ibfk_3` FOREIGN KEY (`id_class`) REFERENCES `class_student` (`id_class`),
-  ADD CONSTRAINT `class_ibfk_4` FOREIGN KEY (`teacher`) REFERENCES `user` (`id_user`),
-  ADD CONSTRAINT `class_ibfk_5` FOREIGN KEY (`id_class`) REFERENCES `class_student` (`id_class`);
-
---
--- Ograniczenia dla tabeli `class_student`
---
-ALTER TABLE `class_student`
-  ADD CONSTRAINT `class_student_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `class_ibfk_3` FOREIGN KEY (`id_class`) REFERENCES `class_student` (`id_class`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `class_ibfk_5` FOREIGN KEY (`id_class`) REFERENCES `class_student` (`id_class`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`teacher`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ograniczenia dla tabeli `class_unit`
@@ -280,12 +281,6 @@ ALTER TABLE `lesson_word`
 ALTER TABLE `meaning`
   ADD CONSTRAINT `meaning_ibfk_1` FOREIGN KEY (`id_pol`) REFERENCES `word_pol` (`id_pol`),
   ADD CONSTRAINT `meaning_ibfk_2` FOREIGN KEY (`id_eng`) REFERENCES `word_eng` (`id_eng`);
-
---
--- Ograniczenia dla tabeli `unit`
---
-ALTER TABLE `unit`
-  ADD CONSTRAINT `unit_ibfk_1` FOREIGN KEY (`teacher`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
