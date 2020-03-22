@@ -10,12 +10,12 @@ if(
   !empty($_POST['password'])){
   $login = filter($_POST['login']);
   $hash = password_hash(filter($_POST['password']),PASSWORD_ARGON2I);
-  $sql="SELECT login, password,type FROM user WHERE login = '$login'";
+  $sql="SELECT id_user,login, password,type FROM user WHERE login = '$login'";
   $data=mysqli_query($connect,$sql);
   $row=  mysqli_fetch_assoc($data);
   if(password_verify($row['password'],$hash)){
     $_SESSION['logged'] = true;
-    $_SESSION['login'] = $login;
+    $_SESSION['id'] = $row['id_user'];
     $type=$row['type'];
      switch($type){
        case "student":
