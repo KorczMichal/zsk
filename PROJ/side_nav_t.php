@@ -36,7 +36,7 @@ ADDCLASS;
     LI;
   } ?>
   </ul>
-  
+
    <form class="" method="post">
      <button type="submit" name="delete_class">Usuń klasę</button>
    </form>
@@ -45,44 +45,58 @@ ADDCLASS;
    if(isset($_POST['delete_class'])){
   echo <<<DELCLASS
   <form class="" action="./scripts/delete_class.php?url=$url" method="post">
-    <input type="text" name="class_name" value="" placeholder>;
+    <input type="text" name="del_class" value="" placeholder>;
     <button type="submit" name="button">Usuń</button>
   </form>
  DELCLASS;
    }
     ?>
   <h5>Uczniowie</h5>
+  <form class=""  method="post">
+    <button type="submit" name="add_student">Dodaj ucznia</button>
+  </form>
+
+  <?php
+  if (isset($_POST['add_student'])) {
+    echo <<<STUDENT
+    <form class="" action="./scripts/add_student.php?url=$url&class_id=$class_id" method="post">
+      <input type="number" name="student_id" value=""><label for="student_id">Podaj id ucznia</label>
+      <button type="submit" name="confirm">Potwierdź</button>
+    </form>
+    STUDENT;
+  }
+ ?>
   <ul class="navbar-nav" >
     <?php
     if(isset($_GET['class_id'])){
       $class_id=$_GET['class_id'];
-    $sql="SELECT name,surname from user join student_class on student_class.id_user=user.id_user where id_class=$class_id";
+    $sql="SELECT user.id_user,name,surname from user join student_class on student_class.id_user=user.id_user where id_class=$class_id";
     $result=mysqli_query($connect,$sql);
     while ($row = mysqli_fetch_assoc($result)) {
       echo <<<LI
       <li class="nav-item">
       <a class="nav-link"" ">
-               $row[name] $row[surname]
+              Id: $row[id_user] | $row[name] $row[surname]
       </a>
       </li>
       LI;
     }}
      ?>
     </ul>
-    <form class=""  method="post">
-      <button type="submit" name="add_student">Dodaj ucznia</button>
-    </form>
 
-    <?php
-    if (isset($_POST['add_student'])) {
-      echo <<<STUDENT
-      <form class="" action="./scripts/add_student.php?url=$url&class_id=$class_id" method="post">
-        <input type="number" name="student_id" value=""><label for="student_id">Podaj id ucznia</label>
-        <button type="submit" name="confirm">Potwierdź</button>
-      </form>
-      STUDENT;
-    }
+   <form class=""  method="post">
+     <button type="submit" name="del_student">Usuń ucznia</button>
+   </form>
 
-     ?>
+   <?php
+   if (isset($_POST['del_student'])) {
+     echo <<<DELSTUDENT
+     <form class="" action="./scripts/delete_student.php?url=$url&class_id=$class_id" method="post">
+       <input type="number" name="del_student" value=""><label for="student_id">Podaj id ucznia</label>
+       <button type="submit" name="confirm">Potwierdź</button>
+     </form>
+     DELSTUDENT;
+   }
+  ?>
 </div>
 <?php mysqli_close($connect); ?>
