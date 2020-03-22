@@ -1,11 +1,13 @@
 <?php
 include('./scripts/connect.php');
 $id= $_SESSION['id'];
+if(isset($_GET['class_id'])){
 $sql="SELECT * from word_eng
   join class_word on class_word.id_word=word_eng.id_eng
    join class on class_word.id_class=class.id_class
     where class.id_class=$_GET[class_id]";
 $result=mysqli_query($connect,$sql);
+};
 $url=$_SERVER['REQUEST_URI'];
  if (isset($_GET['update_id'])) {}
    ?>
@@ -92,6 +94,7 @@ MEANING;
     mysqli_close($connect) ?>
   <div class="row text-center" >
     <?php
+    if(isset($_GET['class_id'])){
     $class_id=$_GET['class_id'];
     echo <<<ADD
     <form class="form d-inline"action="./scripts/add_word.php?url=$url&class_id=$class_id" method="post">
@@ -99,6 +102,7 @@ MEANING;
       <input type="submit" name="" value="Dodaj słowo">
     </form>
     ADD;
+  }
     ?>
   </div>
 </div>

@@ -8,7 +8,7 @@ $row= mysqli_fetch_assoc($result);
  ?>
 <nav class="navbar-expand-xl|lg|md|sm bg-info navbar-cyan sticky-top d-flex">
 <div class="nav nav-item p-2 bg-dark">
-  <a class="navbar-brand" href="index.php">
+  <a class="navbar-brand" >
       <img class="logo" src="logo.png" alt="Logo" style="width: 10em;">
   </a>
 </div>
@@ -18,7 +18,6 @@ $row= mysqli_fetch_assoc($result);
   <a class="nav-link dropdown-toggle text-decoration-none text-white" href="#account"  data-toggle="dropdown">
            <?php
            echo $row['name']." ".$row['surname'];
-           mysqli_close($connect);
             ?>
   </a>
   <div class="dropdown-menu">
