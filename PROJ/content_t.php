@@ -32,7 +32,7 @@ $url=$_SERVER['REQUEST_URI'];
   </div>
 <div class="container">
 <div class="row  p-2">
-  <h2 class="text-left col-2"id="word" id="word">
+  <h2 class="text-left col-2">
   <?php
   if(isset($_POST['word'])){
 

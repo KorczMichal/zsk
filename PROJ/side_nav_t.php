@@ -57,7 +57,8 @@ ADDCLASS;
   </form>
 
   <?php
-  if (isset($_POST['add_student'])) {
+  if (isset($_POST['add_student']) && isset($_GET['class_id'])) {
+    $class_id=$_GET['class_id'];
     echo <<<STUDENT
     <form class="" action="./scripts/add_student.php?url=$url&class_id=$class_id" method="post">
       <input type="number" name="student_id" value=""><label for="student_id">Podaj id ucznia</label>
