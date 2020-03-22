@@ -91,9 +91,15 @@ MEANING;
   }
     mysqli_close($connect) ?>
   <div class="row text-center" >
-
-      <button class="btn btn-dark" type="button" name="dodaj">Dodaj</button>
-
+    <?php
+    $class_id=$_GET['class_id'];
+    echo <<<ADD
+    <form class="form d-inline"action="./scripts/add_word.php?url=$url&class_id=$class_id" method="post">
+      <input type="text" name="add_word" value="">
+      <input type="submit" name="" value="Dodaj słowo">
+    </form>
+    ADD;
+    ?>
   </div>
 </div>
 </div>
