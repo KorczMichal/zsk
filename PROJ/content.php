@@ -1,5 +1,4 @@
-<?php
- ?>
+
 <div class="container bg-info">
 <div class="row">
   <?php
