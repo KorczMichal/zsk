@@ -17,6 +17,7 @@ $url=$_SERVER['REQUEST_URI'];
       <th>Id</th>
       <th>Nazwa</th>
       <th>Nauczyciel</th>
+      <th>Uczniowie</th>
     </tr>
 <?php
 if(!empty($_POST['id_s'])){
@@ -38,8 +39,7 @@ USER;
 }
 }
 else{
-$sql="SELECT * from class join student_class on student_class.id_class=class.id_class
-";
+$sql="SELECT * from class";
 $result=mysqli_query($connect,$sql);
 while ($row=mysqli_fetch_assoc($result)) {
   echo <<<USER
@@ -51,7 +51,16 @@ $sql1="SELECT id_user,name,surname from user where id_user=$row[teacher]";
 $result1=mysqli_query($connect,$sql1);
 $row1=mysqli_fetch_assoc($result1);
 echo "<td>$row1[id_user] $row1[name] $row1[surname]</td>";
-echo  "<td><a href=\"./scripts/delete_class_a.php?id_class=$row[id_class]&url=$url\">Usuń</a></td>";
+
+$id_class=$row['id_class'];
+$sql2="SELECT user.id_user,name,surname from user join student_class on user.id_user=student_class.id_user where id_class=$id_class";
+$result2=mysqli_query($connect,$sql2);
+echo "<td>";
+while($row2=mysqli_fetch_assoc($result2)){
+  echo "$row2[id_user] $row2[name] $row2[surname]<br>";
+}
+echo "</td>";
+echo  "<td><a href=\"./scripts/delete_class_a.php?id_class=$row[id_class]&url=$url\">Usuń klasę</a></td>";
 echo  "</tr>";
 }
 }?>
