@@ -20,26 +20,15 @@ $url=$_SERVER['REQUEST_URI'];
       <th>Uczniowie</th>
     </tr>
 <?php
-if(!empty($_POST['id_s'])){
-$id_s=$_POST['id_s'];
-$sql="SELECT * from class where Id_user=$id_s";
-$result=mysqli_query($connect,$sql);
-while ($row=mysqli_fetch_assoc($result)) {
-  echo <<<USER
-  <tr>
-  <td>$row[id_user]</td>
-  <td>$row[name]</td>
-  <td>$row[surname]</td>
-  <td>$row[type]</td>
-  <td>$row[login]</td>
-  <td>$row[password]</td>
-  <td><a href="./scripts/delete_user_a.php?id_user=$row[id_user]&url=$url">Usuń</a></td>
-  </tr>
-USER;
-}
-}
-else{
 $sql="SELECT * from class";
+if(!empty($_POST['id_c'])){
+$id_class=$_POST['id_c'];
+$sql="SELECT * from class where id_class=$id_class";
+}
+if(!empty($_POST['id_t'])){
+$id_teacher=$_POST['id_t'];
+$sql="SELECT * from class where teacher=$id_teacher";
+}
 $result=mysqli_query($connect,$sql);
 while ($row=mysqli_fetch_assoc($result)) {
   echo <<<USER
@@ -63,7 +52,7 @@ echo "</td>";
 echo  "<td><a href=\"./scripts/delete_class_a.php?id_class=$row[id_class]&url=$url\">Usuń klasę</a></td>";
 echo  "</tr>";
 }
-}?>
+?>
     </table>
 </div>
 </div>

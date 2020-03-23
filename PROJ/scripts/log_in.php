@@ -29,6 +29,23 @@ if(
        header("Location: ../user_a.php");
        break;
      }
-   }}
+   }
+   else{
+     ?>
+     <script type="text/javascript">
+       alert("Niepoprawne dane");
+     </script>
+     <?php
+       header("refresh:3;../register.php");
+   }
+ }
+   else{
+     ?>
+     <script type="text/javascript">
+       alert("Niepoprawne dane");
+     </script>
+     <?php
+     header("Location: ../index.php");
+   }
    mysqli_close($connect);
  ?>

@@ -1,6 +1,6 @@
 <div class="container bg-info">
 <div class="row align-content-center p-2 d-flex">
-  <img class="mx-auto" src="logo.png" alt="Logo">
+<a class="mx-auto" href="index.php">  <img  src="logo.png" alt="Logo"></a>
 </div>
   <form action="scripts/registration.php" method="post">
     <div class="form align-items-center">
