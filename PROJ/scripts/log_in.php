@@ -16,7 +16,8 @@ if(
   if(password_verify($row['password'],$hash)){
     $_SESSION['logged'] = true;
     $_SESSION['id'] = $row['id_user'];
-    $type=$row['type'];
+    $_SESSION['type']=$row['type'];
+    $type=$_SESSION['type'];
      switch($type){
        case "student":
        header("Location: ../home.php");

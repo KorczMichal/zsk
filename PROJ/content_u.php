@@ -11,18 +11,42 @@ $row=mysqli_fetch_assoc($result);
 
 </div>
 <div class="bg-light" >
+  <p>Id:
+<?php
+echo $row['id_user'];
+ ?>
+  </p>
   <p>Login: <?php echo $row['login'] ?></p>
   <form class="" method="post">
     <button type="submit" name="password">Pokaż hasło</button>
   </form>
+  <p>Hasło:
   <?php if(isset($_POST['password'])){
-    echo "Hasło: ".$row['password'];
+    echo $row['password'];
   } ?>
-  <p>Status aktywne</p>
-  <p>Adres e-mail: example@gmail.com</p>
+  </p>
+  <p>Typ:
+<?php
+echo $row['type'];
+ ?>
+  </p>
+<p>Imię:
+<?php
+echo $row['name']; ?>
+ </p>
+<p>Nazwisko:
+<?php
+echo $row['surname'];
+ ?>
+</p>
 </div>
+<div class="row">
+
 <div class="col-10">
 
 </div>
-<button class="col-2" type="button" name="delete">Usuń konto</button>
+<form class="col-2" action="./scripts/delete_user.php" method="post">
+<button class="" type="submit" name="delete">Usuń konto</button>
+</form>
+</div>
 </div>
