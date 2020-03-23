@@ -6,6 +6,8 @@ $type=$_SESSION['type'];
   <div class="col-2 p-1 "><?php
   if($type=='student'){include 'side_nav.php';}
   if($type=='teacher'){include 'side_nav_t.php';}
+  if($type=='admin'){include 'side_nav_a.php';}
+
     ?></div>
   <div class="col-10 p-1"><?php include 'content_u.php' ?></div>
   </div>

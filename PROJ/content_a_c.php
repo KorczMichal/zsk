@@ -1,93 +1,60 @@
+<?php
+$url=$_SERVER['REQUEST_URI'];
+ ?>
 <div class="container bg-info">
-<div class=" row">
-  <div class="container">
-    <form class="form-control" action="index.html" method="post">
-      <select name="class">
-        <option value="unit1">Klasa 1</option>
-        <option value="unit2">Klasa 2</option>
-      </select>
-      <select name="unit">
-        <option value="unit1">Dzial 1</option>
-        <option value="unit2">Dzial 2</option>
-      </select>
-      <select name="lesson">
-        <option value="lesson1">Lekcja 1</option>
-        <option value="lesson2">Lekcja 2</option>
-      </select>
-      <select name="word">
-        <option value="word1">Słowo 1</option>
-        <option value="word2">Słowo 2</option>
-        <option value="word3">Słowo 3</option>
-      </select>
-      <button class="btn btn-dark btn-sm" type="submit" name="button">Przejdź</button>
-    </form>
-  </div>
-  <div class="col-">
-  </div>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="class-add()" >Dodaj klase</a>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="unit-add()" >Dodaj dział</a>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" onclick="lesson-add()">Dodaj lekcję</a>
-  <a  class="col-2 bg-dark text-center text-decoration-none text-white" >Usuń</a>
-</div>
-<div class="container">
-<div class="row  p-2">
-  <h2 class="text-left col-2"id="word" id="word">
-    Słowo</h2>
-    <form class="form col-4 p-2 " method="post">
-      <input type="text" name="new_word" value="">
-      <input type="submit" name="" value="Zamień">
-    </form>
-</div>
-  <div class="container  justify-content-center">
-  <p class="text-left">Tłumaczenia:</p>
-  <button type="button" name="button">Dodaj tłumaczenie</button>
-  <ul class="bg-light">
-    <li id="tr1">Tłumaczenie 1
-<div class="d-flex-inline">
-      <form class="form d-inline" method="post">
-        <input type="text" name="new_meaning" value="">
-        <input type="submit" name="" value="Zamień">
-      </form>
-      <button class="btn btn-sm btn-danger" type="button" name="button">Usuń</button>
-</div>
-    </li>
-    <li id="tr2">Tłumaczenie 2
-      <div class="d-flex-inline">
-            <form class="form d-inline" method="post">
-              <input type="text" name="new_meaning" value="">
-              <input type="submit" name="" value="Zamień">
-            </form>
-            <button class="btn btn-sm btn-danger" type="button" name="button">Usuń</button>
-      </div>
-    </form></li>
-    <li id="tr3">Tłumaczenie 3
-      <div class="d-flex-inline">
-            <form class="form d-inline" method="post">
-              <input type="text" name="new_meaning" value="">
-              <input type="submit" name="" value="Zamień">
-            </form>
-            <button class="btn btn-sm btn-danger" type="button" name="button">Usuń</button>
-      </div>
-  </li>
-  </ul>
-  </div>
-  <div class="row text-center" >
-    <div class="col-2">
-      <button class="btn btn-dark" type="button" name="button">Wstecz</button>
-    </div>
-    <div class="col-3">
-
-    </div>
-    <div class="col-2">
-      <button class="btn btn-dark" type="button" name="button">Nowe</button>
-    </div>
-    <div class="col-3">
-
-    </div>
-    <div class="col-2">
-      <button class="btn btn-dark" type="button" name="button">Dalej</button>
-    </div>
-
-  </div>
+<h2>Lista klas</h2>
+<form class="form d-flex-inline" method="post">
+  <input type="number" name="id_c" value="" placeholder="Id klasy">
+  <button type="submit" name="find_c">Znajdź</button>
+</form>
+<form class="form d-flex-inline" method="post">
+  <input type="number" name="id_t" value="" placeholder="Id nauczyciela">
+  <button type="submit" name="find_t">Znajdź</button>
+</form>
+<div class="cotainer bg-light">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Nauczyciel</th>
+    </tr>
+<?php
+if(!empty($_POST['id_s'])){
+$id_s=$_POST['id_s'];
+$sql="SELECT * from class where Id_user=$id_s";
+$result=mysqli_query($connect,$sql);
+while ($row=mysqli_fetch_assoc($result)) {
+  echo <<<USER
+  <tr>
+  <td>$row[id_user]</td>
+  <td>$row[name]</td>
+  <td>$row[surname]</td>
+  <td>$row[type]</td>
+  <td>$row[login]</td>
+  <td>$row[password]</td>
+  <td><a href="./scripts/delete_user_a.php?id_user=$row[id_user]&url=$url">Usuń</a></td>
+  </tr>
+USER;
+}
+}
+else{
+$sql="SELECT * from class join student_class on student_class.id_class=class.id_class
+";
+$result=mysqli_query($connect,$sql);
+while ($row=mysqli_fetch_assoc($result)) {
+  echo <<<USER
+  <tr>
+  <td>$row[id_class]</td>
+  <td>$row[name]</td>
+USER;
+$sql1="SELECT id_user,name,surname from user where id_user=$row[teacher]";
+$result1=mysqli_query($connect,$sql1);
+$row1=mysqli_fetch_assoc($result1);
+echo "<td>$row1[id_user] $row1[name] $row1[surname]</td>";
+echo  "<td><a href=\"./scripts/delete_class_a.php?id_class=$row[id_class]&url=$url\">Usuń</a></td>";
+echo  "</tr>";
+}
+}?>
+    </table>
 </div>
 </div>

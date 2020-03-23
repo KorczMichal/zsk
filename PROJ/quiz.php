@@ -1,5 +1,5 @@
 <?php
-
+$url=$_SERVER['REQUEST_URI'];
 $sql="SELECT * from word_eng
 join class_word on class_word.id_word=word_eng.id_eng
  join class on class_word.id_class=class.id_class
@@ -29,6 +29,7 @@ $i=0;
   <h2 class="text-center"id="word">
     <?php
     $i=rand(0,sizeof($words)-1);
+    if(isset($_GET['i'])){$i=$_GET['i'];}
     echo $words[$i];
      ?>
   </h2>
@@ -47,9 +48,7 @@ $i=0;
       $result=mysqli_query($connect,$sql);
       $number=mysqli_num_rows($result);
       echo "Liczba tłumaczeń: $number";
-      ?>
-      <form class="" method="post">
-      <?php
+echo "<form action=q_page.php?class_id=".$class_id."&i=$i method=\"post\">";
 for($index=0;$index<$number;$index++){
   echo "<input type=\"text\" name=\"tr$index\" value=\"\"><br>";
 }
@@ -80,8 +79,7 @@ else {
   for($m=0;$m<$number;$m++){
     echo "$mean[$m]<br>";
   }
-}
-}
+}}
 ?>
   </div>
   <div class="row text-center" >
@@ -89,9 +87,7 @@ else {
 
     </div>
     <div class="col-2">
-      <form class="" method="post">
-        <button class="btn btn-dark" type="submit">Jeszcze raz</button>
-      </form>
+      <button type="button" name="button"><a class="btn" href="<?php echo"q_page.php?class_id=".$class_id ?>">Losuj</a></button>
 
     </div>
   </div>
